@@ -727,6 +727,28 @@ export function Sidebar({ onRoomJoin }: SidebarProps) {
         )}
       </div>
 
+      {/* Botão de Sair */}
+      <div className="p-4 border-t">
+        <button 
+          onClick={() => {
+            // Desconectar o socket
+            if (socket) {
+              socket.disconnect();
+            }
+            // Redirecionar para a página de login ou recarregar a página
+            window.location.href = '/';
+          }}
+          className="w-full py-3 bg-red-500 hover:bg-red-600 text-white font-medium rounded-lg flex items-center justify-center transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 mr-2">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          Sair
+        </button>
+      </div>
+
       {selectedRoom && (
         <RoomLoginModal
           room={selectedRoom}
