@@ -238,6 +238,25 @@ export function Sidebar({ onRoomJoin }: SidebarProps) {
               Exibindo {roomsToDisplay.length} {roomsToDisplay.length === 1 ? 'sala' : 'salas'} para "{searchQuery}"
             </p>
           )}
+          
+          {/* Botão de CRIAR SALA */}
+          {!searchQuery && (
+            <div 
+              onClick={() => {
+                // Aqui poderia abrir um modal para criar uma nova sala
+                alert("Funcionalidade de criar sala será implementada em breve!");
+              }}
+              className="group p-3 rounded-lg border border-green-200 transition-all duration-300 bg-gradient-to-br from-green-50 to-green-100/30 hover:shadow-lg hover:shadow-green-100/50 cursor-pointer transform hover:-translate-y-1 flex items-center justify-center mb-3"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 mr-2 text-green-600">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="16"></line>
+                <line x1="8" y1="12" x2="16" y2="12"></line>
+              </svg>
+              <span className="font-medium text-green-700">CRIAR SALA</span>
+            </div>
+          )}
+          
           {roomsToDisplay && roomsToDisplay.length > 0 ? (
             roomsToDisplay.map(room => (
               <div
