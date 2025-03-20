@@ -8,7 +8,7 @@ const httpServer = http.createServer(app);
 
 // Configure CORS
 app.use(cors({
-  origin: 'http://localhost:5175', // Vite dev server URL
+  origin: '*', // Permitir qualquer origem (ou use origem específica em produção)
   methods: ['GET', 'POST'],
   credentials: true
 }));
@@ -16,7 +16,7 @@ app.use(cors({
 // Create Socket.IO server with CORS config
 const io = new Server(httpServer, {
   cors: {
-    origin: 'http://localhost:5175',
+    origin: '*', // Permitir qualquer origem (ou use origem específica em produção)
     methods: ['GET', 'POST'],
     credentials: true
   },
